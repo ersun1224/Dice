@@ -1,28 +1,36 @@
+Die bob;
+
 void setup()
 {
 	size(500,500);
 	noLoop();
-	textAlign(CEMTER);
+	textAlign(CENTER);
 }
 void draw()
 {
-	//your code here
+	bob = new Die(mouseX,mouseY);
 }
+
 void mousePressed()
 {
 	redraw();
 }
-class Dice //models one single dice cube
+
+class Die //models one single dice cube
 {
 	//variable declarations here
 	int myX, myY, face;
-	Dice(int x, int y) //constructor
+	double diceRoll;
+	Die(int x, int y)
 	{
-		//variable initializations here
+		myX = x;
+		myY = y;
+		roll();
+		show();
 	}
-	void roll()
+	 void roll()
 	{
-		double diceRoll = math.Random();
+		diceRoll = Math.random();
 		if (diceRoll < .167) {
 			face = 1;
 		} else if (diceRoll < .333) {
@@ -31,7 +39,7 @@ class Dice //models one single dice cube
 			face = 3;
 		} else if (diceRoll < .667) {
 			face = 4;
-		} else if (diceRoll < ..833) {
+		} else if (diceRoll < .833) {
 			face = 5;
 		} else {
 			face = 6;
@@ -39,6 +47,38 @@ class Dice //models one single dice cube
 	}
 	void show()
 	{
-		//your code here
+		noStroke();
+		fill(0,255,0);
+		rect(myX, myY, 50, 50);
+
+		fill(0);
+		if(face == 1) {
+			ellipse(myX + 25, myY + 25, 10, 10);
+		} else if (face == 2) {
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+		} else if (face == 3) {
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 25, myY + 25, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+		} else if (face == 4) {
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+		} else if (face == 5) {
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+			ellipse(myX + 25, myY + 25, 10, 10);
+		} else if (face == 6) {
+			ellipse(myX + 10, myY + 10, 10, 10);
+			ellipse(myX + 40, myY + 10, 10, 10);
+			ellipse(myX + 10, myY + 25, 10, 10);
+			ellipse(myX + 40, myY + 25, 10, 10);
+			ellipse(myX + 10, myY + 40, 10, 10);
+			ellipse(myX + 40, myY + 40, 10, 10);
+		}
 	}
 }
