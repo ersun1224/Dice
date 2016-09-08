@@ -1,19 +1,31 @@
 Die bob;
+int diceTotal = 0;
+int clickCount = 0;
 
 void setup()
 {
-	size(500,500);
+	size(750,500);
 	noLoop();
 	textAlign(CENTER);
 }
 void draw()
 {
-	bob = new Die(mouseX,mouseY);
+	background(0);
+	for(int i = 40; i < 426; i = i + 75) {
+		for(int j = 50; j < 440; j = j + 75) {
+		bob = new Die(i,j);
+		diceTotal = diceTotal + bob.face;
+		}
+	}
+	fill(255);
+	text("Grand Total: " + diceTotal,625,100);
+	text("You've rerolled " + clickCount + " times.", 625, 200);
 }
 
 void mousePressed()
 {
 	redraw();
+	clickCount = clickCount + 1;
 }
 
 class Die //models one single dice cube
