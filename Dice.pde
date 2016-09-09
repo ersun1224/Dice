@@ -1,6 +1,6 @@
 Die bob;
 int diceTotal = 0;
-int clickCount = 0;
+int clickCount = 1;
 
 void setup()
 {
@@ -19,7 +19,8 @@ void draw()
 	}
 	fill(255);
 	text("Grand Total: " + diceTotal,625,100);
-	text("You've rerolled " + clickCount + " times.", 625, 200);
+	text("You've rolled " + (clickCount) + " times.", 625, 150);
+	text("Average Sum: " + (diceTotal/clickCount), 625, 200);
 }
 
 void mousePressed()
