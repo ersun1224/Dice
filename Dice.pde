@@ -2,6 +2,10 @@ Die bob;
 int diceTotal = 0;
 int clickCount = 1;
 
+int r = 0;	//to determine the color of the dice
+int g = 255;
+int b = 0;
+
 void setup()
 {
 	size(750,500);
@@ -13,7 +17,7 @@ void draw()
 	background(0);
 	for(int i = 40; i < 426; i = i + 75) {
 		for(int j = 50; j < 440; j = j + 75) {
-		bob = new Die(i,j);
+		bob = new Die(j,i);
 		diceTotal = diceTotal + bob.face;
 		}
 	}
@@ -27,6 +31,9 @@ void mousePressed()
 {
 	redraw();
 	clickCount = clickCount + 1;
+	r = (int)(Math.random()*256);
+	g = (int)(Math.random()*256);
+	b = (int)(Math.random()*256);
 }
 
 class Die //models one single dice cube
@@ -61,7 +68,7 @@ class Die //models one single dice cube
 	void show()
 	{
 		noStroke();
-		fill(0,255,0);
+		fill(r,g,b);
 		rect(myX, myY, 50, 50);
 
 		fill(0);
