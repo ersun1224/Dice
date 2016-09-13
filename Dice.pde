@@ -2,9 +2,14 @@ Die bob;
 int diceTotal = 0;
 int clickCount = 1;
 
+int total = 0;
+
+
+
 int r = 0;	//to determine the color of the dice
 int g = 255;
 int b = 0;
+int c = 0;
 
 void setup()
 {
@@ -19,6 +24,15 @@ void draw()
 		for(int j = 50; j < 440; j = j + 75) {
 		bob = new Die(j,i);
 		diceTotal = diceTotal + bob.face;
+
+		if(i == 40) {
+			fill(0);
+			rect(500, 0, 50, 500);
+			fill(255);
+			total = total + bob.face;
+			text(total,500,i+50);
+		}
+
 		}
 	}
 	fill(255);
@@ -34,6 +48,12 @@ void mousePressed()
 	r = (int)(Math.random()*256);
 	g = (int)(Math.random()*256);
 	b = (int)(Math.random()*256);
+
+	if(r+g+b < 300) {
+		c = 255;
+	} else {
+		c = 0;
+	}
 }
 
 class Die //models one single dice cube
@@ -71,7 +91,7 @@ class Die //models one single dice cube
 		fill(r,g,b);
 		rect(myX, myY, 50, 50);
 
-		fill(0);
+		fill(c);
 		if(face == 1) {
 			ellipse(myX + 25, myY + 25, 10, 10);
 		} else if (face == 2) {
