@@ -2,44 +2,119 @@ Die bob;
 int diceTotal = 0;
 int clickCount = 1;
 
-int total = 0;
+int total1, total2, total3, total4, total5, total6 = 0; //variables for row totals
+int num1, num2, num3, num4, num5, num6 = 0;
 
 
 
 int r = 0;	//to determine the color of the dice
 int g = 255;
 int b = 0;
-int c = 0;
+int c = 0; //color of the dots
 
 void setup()
 {
 	size(750,500);
 	noLoop();
 	textAlign(CENTER);
+	textSize(15);
 }
 void draw()
 {
 	background(0);
 	for(int i = 40; i < 426; i = i + 75) {
 		for(int j = 50; j < 440; j = j + 75) {
-		bob = new Die(j,i);
-		diceTotal = diceTotal + bob.face;
-
-		if(i == 40) {
-			fill(0);
-			rect(500, 0, 50, 500);
-			fill(255);
-			total = total + bob.face;
-			text(total,500,i+50);
-		}
-
+			bob = new Die(j,i);
+			diceTotal = diceTotal + bob.face;
+			//row totals
+			if(i == 40) {
+				fill(0);
+				rect(475, i, 50, 50);			
+				fill(255);
+				total1 = total1 + bob.face;
+				text(total1,500,i+30);
+			} else if (i == 115) {
+				fill(0);
+				rect(475, i, 50, 50);			
+				fill(255);
+				total2 = total2 + bob.face;
+				text(total2,500,i+30);
+			} else if (i == 190) {
+				fill(0);
+				rect(475, i, 50, 50);			
+				fill(255);
+				total3 = total3 + bob.face;
+				text(total3,500,i+30);
+			} else if (i == 265) {
+				fill(0);
+				rect(475, i, 50, 50);			
+				fill(255);
+				total4 = total4 + bob.face;
+				text(total4,500,i+30);			
+			} else if (i == 340) {
+				fill(0);
+				rect(475, i, 50, 50);		
+				fill(255);
+				total5 = total5 + bob.face;
+				text(total5,500,i+30);	
+			} else if (i == 415) {
+				fill(0);
+				rect(475, i, 50, 50);			
+				fill(255);
+				total6 = total6 + bob.face;
+				text(total6,500,i+30);	
+			}
+			//number of each face
+			if(bob.face == 1) {
+				num1++;
+				fill(0);
+				rect(540, 230, 80, 30);
+				fill(255);
+				text("1's: " + num1, 570, 250);
+			} else if(bob.face == 2) {
+				num1++;
+				fill(0);
+				rect(630, 230, 80, 30);
+				fill(255);
+				text("2's: " + num2, 660, 250);
+			}
+			else if(bob.face == 3) {
+				num1++;
+				fill(0);
+				rect(530, 230, 80, 30);
+				fill(255);
+				text("1's: " + num1, 560, 250);
+			}
+			else if(bob.face == 4) {
+				num1++;
+				fill(0);
+				rect(530, 230, 80, 30);
+				fill(255);
+				text("1's: " + num1, 560, 250);
+			}
+			else if(bob.face == 5) {
+				num1++;
+				fill(0);
+				rect(530, 230, 80, 30);
+				fill(255);
+				text("1's: " + num1, 560, 250);
+			}
+			else if(bob.face == 6) {
+				num1++;
+				fill(0);
+				rect(530, 230, 80, 30);
+				fill(255);
+				text("1's: " + num1, 560, 250);
+			}
 		}
 	}
 	fill(255);
 	text("Grand Total: " + diceTotal,625,100);
 	text("You've rolled " + (clickCount) + " times.", 625, 150);
 	text("Average Sum: " + (diceTotal/clickCount), 625, 200);
+	text("Row Total", 500, 25);
 }
+
 
 void mousePressed()
 {
@@ -54,6 +129,20 @@ void mousePressed()
 	} else {
 		c = 0;
 	}
+
+	total1 = 0;
+	total2 = 0;
+	total3 = 0;
+	total4 = 0;
+	total5 = 0;
+	total6 = 0;
+
+	num1 = 0;
+	num2 = 0;
+	num3 = 0;
+	num4 = 0;
+	num5 = 0;
+	num6 = 0;
 }
 
 class Die //models one single dice cube
