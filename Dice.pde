@@ -72,41 +72,42 @@ void draw()
 				fill(255);
 				text("1's: " + num1, 570, 250);
 			} else if(bob.face == 2) {
-				num1++;
+				num2++;
 				fill(0);
 				rect(630, 230, 80, 30);
 				fill(255);
 				text("2's: " + num2, 660, 250);
 			}
-			else if(bob.face == 3) {
-				num1++;
+			else if(bob.face == 3) { //continue here
+				num3++;
 				fill(0);
-				rect(530, 230, 80, 30);
+				rect(540, 260, 80, 30);
 				fill(255);
-				text("1's: " + num1, 560, 250);
+				text("3's: " + num3, 570, 290);
 			}
 			else if(bob.face == 4) {
-				num1++;
+				num4++;
 				fill(0);
-				rect(530, 230, 80, 30);
+				rect(630, 260, 80, 30);
 				fill(255);
-				text("1's: " + num1, 560, 250);
+				text("4's: " + num4, 660, 290);
 			}
 			else if(bob.face == 5) {
-				num1++;
+				num5++;
 				fill(0);
-				rect(530, 230, 80, 30);
+				rect(540, 310, 80, 30);
 				fill(255);
-				text("1's: " + num1, 560, 250);
+				text("5's: " + num5, 570, 330);
 			}
 			else if(bob.face == 6) {
-				num1++;
+				num6++;
 				fill(0);
-				rect(530, 230, 80, 30);
+				rect(630, 310, 80, 30);
 				fill(255);
-				text("1's: " + num1, 560, 250);
+				text("6's: " + num6, 660, 330);
 			}
 		}
+		//row totals
 	}
 	fill(255);
 	text("Grand Total: " + diceTotal,625,100);
@@ -118,7 +119,7 @@ void draw()
 
 void mousePressed()
 {
-	redraw();
+	
 	clickCount = clickCount + 1;
 	r = (int)(Math.random()*256);
 	g = (int)(Math.random()*256);
@@ -143,6 +144,7 @@ void mousePressed()
 	num4 = 0;
 	num5 = 0;
 	num6 = 0;
+	redraw();
 }
 
 class Die //models one single dice cube
