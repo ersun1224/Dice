@@ -63,7 +63,7 @@ void draw()
 	fill(255);
 	text("Grand Total: " + diceTotal,625,100);
 	text("You've rolled " + (clickCount) + " times.", 625, 150);
-	text("Average Sum: " + (float)(diceTotal/clickCount), 625, 200);
+	text("Average Sum: " + (int)(diceTotal/clickCount), 625, 200);
 	text("Row Total", 500, 25);
 
 	text(total1,500,70); //row totals
