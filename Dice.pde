@@ -1,6 +1,6 @@
-Die bob;
-int diceTotal = 0;
-int clickCount = 1;
+Die bob; 
+int diceTotal = 0; //cumulative sum of dice
+int clickCount = 1; //roll count
 
 int total1, total2, total3, total4, total5, total6 = 0; //variables for row totals
 int num1, num2, num3, num4, num5, num6 = 0; //variables for face totals
@@ -25,7 +25,7 @@ void draw()
 	for(int i = 40; i < 426; i = i + 75) {
 		for(int j = 50; j < 440; j = j + 75) {
 			bob = new Die(j,i);
-			diceTotal = diceTotal + bob.face;
+			diceTotal = diceTotal + bob.face; //adding to overall
 			//row totals
 			if(i == 40) {
 				total1 = total1 + bob.face;
@@ -90,13 +90,13 @@ void mousePressed()
 	g = (int)(Math.random()*256);
 	b = (int)(Math.random()*256);
 
-	if(r+g+b < 300) {
+	if(r+g+b < 300) { //color of dots depends on color of dice
 		c = 255;
 	} else {
 		c = 0;
 	}
 
-	total1 = 0;
+	total1 = 0; //resets
 	total2 = 0;
 	total3 = 0;
 	total4 = 0;
